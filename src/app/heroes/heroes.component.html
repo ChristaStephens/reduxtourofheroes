@@ -11,7 +11,7 @@
         <input [([(ngModel)]="hero.name")] placeholder="name"/>
     </label>
 </div>  -->
-
+<!--
 <h2>{{hero.name | uppercase}} Details</h2>
 <div><span>ID: </span>{{hero.id}}</div>
 <div>
@@ -28,4 +28,15 @@
             </label>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<!--
+    to iterate through the list of heroes that we created in the
+mock hero file, us the *ngFor -->
+<h2>My Marvel Heros</h2>
+<ul class="heroes">
+    <li *ngFor ="let hero of heroes">
+        <span class="badge">{{hero.id}}.</span> {{hero.name}}
+    </li>
+</ul>
