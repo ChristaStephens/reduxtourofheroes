@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
+import { HeroService} from '../hero.service';
 
 @Component({
   // selector to help use this component in other components' html
@@ -10,7 +11,17 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent implements OnInit {
   //import heroes from mock heroes
-  heroes = HEROES;
+  // heroes = HEROES;
+
+  // we need to replace the declaration of heroes to
+  // bring in the heroes service with the new information below
+
+  heroes: Hero[];
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
+  }
+
   //assign the clicked hero from the html
   selectedHero: Hero;
   onSelect(hero: Hero): void {
@@ -24,9 +35,10 @@ export class HeroesComponent implements OnInit {
   //    city: 'Chicago'
   //  };
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    this.getHeroes();
   }
 
 }
