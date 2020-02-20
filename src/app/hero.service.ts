@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Hero } from './hero';
-import { HEROES} from './mock-heroes';
+
 import { Observable, of } from 'rxjs';
+
+import { Hero } from './hero';
+import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-
-  //replaced with an observable for asynchronous -
-  //to work with data from a server
-  //will get the mock heroes and return them
-  // getHeroes(): Hero[] {
-  //   return HEROES;
-  // }
+  //injecting a service within a service byt first importing it
+  //then declaring it with parameters (it's the same name as the class)
+  constructor(private messageService: MessageService) { }
 
   // this will return an observable an array
   // of mocked heroes and shows a message when
@@ -25,7 +23,4 @@ export class HeroService {
     return of(HEROES);
   }
 
-  //injecting a service within a service byt first importing it
-  //then declaring it with parameters (it's the same name as the class)
-  constructor(private messageService: MessageService) { }
 }
