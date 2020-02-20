@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
 import { HeroService} from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   // selector to help use this component in other components' html
@@ -18,15 +19,15 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
 
-  getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
-  }
+  // getHeroes(): void {
+  //   this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+  // }
 
   //assign the clicked hero from the html
   selectedHero: Hero;
-  onSelect(hero: Hero): void {
-  this.selectedHero = hero;
-}
+//   onSelect(hero: Hero): void {
+//   this.selectedHero = hero;
+// }
 
   //  hero: Hero = {
   //    id: 1,
@@ -35,10 +36,21 @@ export class HeroesComponent implements OnInit {
   //    city: 'Chicago'
   //  };
 
-  constructor(private heroService: HeroService) { }
+  //same name as the service class
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getHeroes();
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    this.messageService.add(`HeroService: Selected hero id=${hero.id}`);
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
 
 }
