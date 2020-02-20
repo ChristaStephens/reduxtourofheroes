@@ -67,20 +67,4 @@ at a time -->
     <span class="badge">{{hero.id}}</span> {{hero.name}}
 </li>
 </ul>
-
-<!-- details section  -->
-
-<div *ngIf="selectedHero">
-
-  <h2>Hero Details: {{selectedHero.name }}
-      <p>City: {{ selectedHero.city }}</p>
-      <p>Power: {{ selectedHero.power }}</p>
-  </h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </label>
-  </div>
-
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

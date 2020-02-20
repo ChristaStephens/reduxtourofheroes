@@ -1,0 +1,16 @@
+<!-- details section  -->
+<!-- change the binding name as the new property name is "hero" -->
+<div *ngIf="hero">
+
+    <h2>Hero Details: {{ hero.name }}
+        <p>City: {{ hero.city }}</p>
+        <p>Power: {{ hero.power }}</p>
+    </h2>
+    <div><span>id: </span>{{ hero.id }}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label>
+    </div>
+
+  </div>
