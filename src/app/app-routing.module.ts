@@ -16,10 +16,10 @@ Routes array. The empty '' is always the home page. */
 //parameterized route. : colon in the path is a placeholder for a specific hero
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  { path: 'heroes', component: HeroesComponent },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'detail/:id', component: HeroDetailComponent}
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'heroes', component: HeroesComponent }
 ];
 
 @NgModule({
