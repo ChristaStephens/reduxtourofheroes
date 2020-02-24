@@ -18,7 +18,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
   //assign the clicked hero from the html
-  selectedHero: Hero;
+
 
   //same name as the service class
   constructor(private heroService: HeroService, private messageService: MessageService) { }
@@ -28,7 +28,7 @@ export class HeroesComponent implements OnInit {
   }
 
   onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+
     this.messageService.add(`HeroService: Selected hero id=${hero.id}`);
   }
 
